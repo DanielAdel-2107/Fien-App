@@ -1,0 +1,31 @@
+import 'package:fien/core/utilies/sizes/sized_config.dart';
+import 'package:fien/core/utilies/styles/app_text_styles.dart';
+import 'package:flutter/material.dart';
+
+class LostFoundItemStatus extends StatelessWidget {
+  const LostFoundItemStatus({super.key, required this.status});
+
+  final String status;
+
+  @override
+  Widget build(BuildContext context) {
+    return Positioned(
+      top: SizeConfig.height * 0.015,
+      right: SizeConfig.width * 0.03,
+      child: Container(
+        width: SizeConfig.width * 0.15,
+        decoration: BoxDecoration(
+          color: status != 'found' ? Colors.red : Colors.green,
+          borderRadius: BorderRadius.circular(12),
+        ),
+        padding: EdgeInsets.symmetric(
+          horizontal: SizeConfig.width * 0.01,
+          vertical: SizeConfig.height * 0.002,
+        ),
+        child: Center(
+          child: Text(status, style: AppTextStyles.title16White500),
+        ),
+      ),
+    );
+  }
+}
